@@ -24,7 +24,41 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <title>La casa del cibo</title>
+
+  <script>
+    function test() {
+      name=f.name.value;
+      email=f.email.value;
+      phone=f.phone.value;
+      for (i=0;i< length(name) ;i++){
+        if(name.charAt(name[i])<'a' || nom.charAt(name[i])>'z' || name.charAt(name[i])<'A' || name.charAt(name[i])>'Z')
+          {
+            alert("verify your name");
+            return false;
+          }
+        }
+  
+        if (isNaN(phone) || phone.length!=8  )
+            {
+            alert("verify your phone number");
+            return false;
+            }
+            at=email.indexOf('@')
+            point=email.indexOf('.',at)
+        if(email=="" || at==-1 || point==-1)
+        {
+            alert("verify your email");
+            return false;
+        } 
+  
+      }
+  </script>
+
 </head>
+
+
+
+
 
 <body>
 
@@ -260,7 +294,7 @@
           <p>Book a Table</p>
         </div>
 
-        <form action="add.php" method="POST" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+        <form action="add.php" method="POST" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100" name='f'  onsubmit='return test()'>
           <div class="row">
             <div class="col-lg-4 col-md-6 form-group">
               <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
@@ -292,10 +326,7 @@
             <div class="validate"></div>
           </div>
           <div class="mb-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
-          </div><div class="text-center"><button type="submit" name="ok">Book a table</button></div>
+          </div><div class="text-center"><button onclick="test()" type="submit" name="ok">Book a table</button></div>
         </form>
 
       </div>
@@ -386,88 +417,6 @@
       </div>
     </section><!-- End Gallery Section -->
 
-    <!-- ======= Contact Section ======= -->
-
-    <section id="contact" class="contact">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Contact</h2>
-          <p>Contact Us</p>
-        </div>
-      </div>
-
-
-
-      <div class="container" data-aos="fade-up">
-
-        <div class="row mt-5">
-
-          <div class="col-lg-4">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>liberty street, Lac 2, Tunis</p>
-              </div>
-
-              <div class="open-hours">
-                <i class="bi bi-clock"></i>
-                <h4>Open Hours:</h4>
-                <p>
-                  Monday-Saturday:<br>
-                  11:00 - 23:00
-                </p>
-              </div>
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>contact@lacasa.com</p>
-              </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+216 71 345 864</p>
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="col-lg-8 mt-5 mt-lg-0">
-
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name2" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email2" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message2" rows="8" placeholder="Message" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
-
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -483,34 +432,9 @@
                 liberty street, Lac 2, Tunis<br><br>
                 <strong>Phone:</strong> +216 71 345 864<br>
                 <strong>Email:</strong> contact@lacasa.com<br>
-              </p>
-              <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-              </div>
+              </p>          
             </div>
           </div>
-
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#contact">Conract Us</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <form action="" method="post">
-              <input type="email" name="eemail"><input type="submit" value="Subscribe">
-            </form>
-
-          </div>
-
         </div>
       </div>
     </div>
