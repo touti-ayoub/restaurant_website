@@ -24,44 +24,8 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <title>La casa del cibo</title>
-
-  <script>
-    function test() {
-      name=f.name.value;
-      email=f.email.value;
-      phone=f.phone.value;
-      for (i=0;i< length(name) ;i++){
-        if(name.charAt(name[i])<'a' || nom.charAt(name[i])>'z' || name.charAt(name[i])<'A' || name.charAt(name[i])>'Z')
-          {
-            alert("verify your name");
-            return false;
-          }
-        }
-  
-        if (isNaN(phone) || phone.length!=8  )
-            {
-            alert("verify your phone number");
-            return false;
-            }
-            at=email.indexOf('@')
-            point=email.indexOf('.',at)
-        if(email=="" || at==-1 || point==-1)
-        {
-            alert("verify your email");
-            return false;
-        } 
-  
-      }
-  </script>
-
 </head>
-
-
-
-
-
 <body>
-
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-cente">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
@@ -294,7 +258,7 @@
           <p>Book a Table</p>
         </div>
 
-        <form action="add.php" method="POST" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100" name='f'  onsubmit='return test()'>
+        <form action="add.php" method="POST" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100" name='f'>
           <div class="row">
             <div class="col-lg-4 col-md-6 form-group">
               <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
@@ -322,11 +286,11 @@
             </div>
           </div>
           <div class="form-group mt-3">
-            <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+            <textarea class="form-control"  name="message" rows="5" placeholder="Message"></textarea>
             <div class="validate"></div>
           </div>
           <div class="mb-3">
-          </div><div class="text-center"><button onclick="test()" type="submit" name="ok">Book a table</button></div>
+          </div><div class="text-center"><button type="submit" name="ok">Book a table</button></div>
         </form>
 
       </div>
@@ -456,3 +420,35 @@
 </body>
 
 </html>
+<script lang="javascript">
+  const f = document.querySelector("form[name=f]");
+  f.onsubmit=function(ev){
+
+  const name = f.name.value,
+    email = f.email.value,
+    phone = f.phone.value;
+    pp= f.people.value;
+    var letters = /^[A-Za-z- ]+$/;
+
+    if( ! name.match(letters)){
+      alert("Verify your name");
+      return false;
+    }
+
+    if (isNaN(phone) ) {
+    alert("verify your phone number");
+    return false;
+  }
+
+  if (phone.length != 8){
+    alert("verify your phone number");
+    return false;
+  }
+  if(pp > 10){
+    alert("Sorry we can only accept 10 people at maximum");
+    return false;
+  }
+
+  
+}
+</script>
